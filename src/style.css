@@ -1,0 +1,40 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.App{
+    display: flex;
+}
+
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 70%
+}
+.movie-details{
+    width: 30%;
+    border: 1px solid greenyellow;
+    padding: 5px;
+    margin: 20px;
+}
+
+.movies .banner{
+    border: 1px solid greenyellow;
+    padding: 5px;
+    margin: 20px;
+    width: 300px;
+}
+
+.movies .banner img{
+   width: 300px;
+}
+
+
+.movies .banner h1{
+    text-align: center;
+
+}
+
