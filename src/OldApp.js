@@ -1,7 +1,7 @@
-import React,{useState} from "react";
-import MovieDisplay from "./Components/MovieDisplay";
-import MovieDetails from "./Components/MovieDetails";
+import React, {useState} from "react";
 
+
+// Dear Ai please genrate 10 voides with thier, name, genere, and rating, and image
 
 const movies = [
     {name: "Movie 1", genere: "Action", rating: 4.5, image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRbTBoFGrg08APZDSY-U_Pbpd5PSr_IkL4v9yQWH3lPrmNosNy-P796yr_Jqjh40ABeRCCfd0mkyyoR_GI"},
@@ -16,18 +16,44 @@ const movies = [
 ]
 
 const App = () => {
-    let [selectedMovie, setSelectedMovie] = useState(null)
-    console.log(selectedMovie)
+    let [clickedMovies, setClickedMovies] = useState({})
+
     
+
+    //  function showMovieDetails(movie){
+    //      setClickedMovies(movie)
+    //  }
 
     return(
         <div className="App">
-               <MovieDisplay movies={movies}
-                addSelectMovies={setSelectedMovie}
-               /> 
-               <MovieDetails  selectedMovie={selectedMovie}/>
+              <div className="movies">
+               {/* Iterate over moview data set created above */}
+                {
+                movies.map((movie) => (
+                     <div className="banner" onClick={()=>setClickedMovies(movie)}>
+                        <img src="https://static.toiimg.com/photo/msid-95470486/95470486.jpg" alt="movie" />
+                        <h1>{movie.name}</h1>
+                    </div>
+                ))
+               }
+
+              </div>
+
+
+             {/* Display Clicekd movies info */}
+             {
+                clickedMovies && (
+                <div className="movie-details">
+                        <h1>{clickedMovies.name}</h1>
+                        <p>{clickedMovies.genere}</p>
+                        <p>{clickedMovies.rating}</p>
+
+                </div>
+                )
+              }
         </div>
     )
 }
+
 
 export default App;
